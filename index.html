@@ -4,27 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prova Frontend - Activitats</title>
+    <title>Aplicació Activitats</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
-        <h1>Activitats per Combatre l'Avorriment</h1>
+        <h1><span class="logo">⚪ BOORED</span></h1>
     </header>
 
     <main>
-        <section id="activity-container">
-            <p id="activity-text">Fes clic a "Nova Activitat" per començar!</p>
+        <section id="filters">
+            <button class="filter-btn active" data-type="social">Social</button>
+            <button class="filter-btn" data-type="educacio">Educació</button>
+            <button class="filter-btn" data-type="caritat">Caritat</button>
+            <button class="filter-btn" data-type="cuinar">Cuinar</button>
+            <button class="filter-btn" data-type="relaxacio">Relaxació</button>
+            <button class="filter-btn" data-type="treball">Treball intens</button>
         </section>
 
-        <section id="buttons">
-            <button id="new-activity-btn">Nova Activitat</button>
+        <section id="content">
+            <div id="activity-card">
+                <img src="" alt="Activity Icon" id="activity-icon">
+                <h2 id="activity-title">Troba alguna cosa a fer</h2>
+                <button id="generate-btn">Generar</button>
+            </div>
+            <div id="activity-result">
+                <h3>Activitat:</h3>
+                <p id="activity-text">Text a un amic amb qui no has parlat des de fa temps.</p>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>Desenvolupat per Anna per al Saló Ocupació 2024</p>
+        <p>Desenvolupat per annahico - Prova Frontend</p>
     </footer>
 
     <script src="script.js"></script>

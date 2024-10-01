@@ -1,0 +1,19 @@
+/* Estils generals */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #fafafa;
+}
+
+header {
+    padding: 20px;
+    text-align: left;
+    background: #ffffff;
+}
+
+.logo {
+    font-weight: bold;
+    color: #282c34;
+}

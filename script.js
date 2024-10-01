@@ -20,3 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error(error);
             });
     }
+
+    // Canvi de filtre
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            selectedType = button.getAttribute('data-type');
+            fetchActivity();
+        });
+    });
+
+    // Botó de generar nova activitat
+    generateBtn.addEventListener('click', fetchActivity);
+});

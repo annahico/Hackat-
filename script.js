@@ -4,9 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     let selectedType = ''; // Variable per emmagatzemar el tipus seleccionat (si n'hi ha)
 
-    // Funció per obtenir una activitat aleatòria
+    // Funció per obtenir una activitat (amb o sense filtre)
     function fetchRandomActivity() {
-        const url = 'https://bored-api.appbrewery.com/random';
+        // Si hi ha un tipus seleccionat, construïm l'URL amb el paràmetre de tipus
+        const url = selectedType
+            ? `https://www.boredapi.com/api/activity?type=${selectedType}`
+            : 'https://www.boredapi.com/api/activity/';
 
         fetch(url)
             .then(response => response.json())
@@ -23,13 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
-    // Canvi de filtre - Actualment, el botó de filtre no afecta l'API aleatòria
+    // Canvi de filtre: activa/desactiva el botó de filtre i crida l'API amb el nou tipus
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
-            selectedType = button.getAttribute('data-type');
-            fetchRandomActivity();
+            selectedType = button.getAttribute('data-type'); // Actualitza el tipus seleccionat
+            fetchRandomActivity(); // Obté una nova activitat basada en el filtre
         });
     });
 

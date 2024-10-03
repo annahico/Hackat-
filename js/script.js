@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const darkModeToggle = document.getElementById("dark-mode-toggle");
     const body = document.body;
+    const contentSection = document.getElementById('content'); // Afegim la secció de contingut
     let selectedType = ''; // Variable per emmagatzemar el tipus seleccionat (si n'hi ha)
 
     // Funció per obtenir una activitat (amb o sense filtre)
     function fetchRandomActivity() {
-        // Si hi ha un tipus seleccionat, construïm l'URL amb el paràmetre de tipus
         const url = selectedType
             ? `https://www.boredapi.com/api/activity?type=${selectedType}`
             : 'https://www.boredapi.com/api/activity/';
@@ -16,9 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                // Mostrem la informació de l'activitat
                 activityText.textContent = `Activitat: ${data.activity}`;
-                console.log(data); // Mostra totes les dades per inspeccionar
+                console.log(data);
             })
             .catch(error => {
                 activityText.textContent = 'Error en carregar la nova activitat. Intenta-ho de nou més tard!';
@@ -26,13 +25,27 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
-    // Canvi de filtre: activa/desactiva el botó de filtre i crida l'API amb el nou tipus
+    // Canvi de filtre: activa/desactiva el botó de filtre i carrega el contingut del fitxer corresponent
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             selectedType = button.getAttribute('data-type'); // Actualitza el tipus seleccionat
-            fetchRandomActivity(); // Obté una nova activitat basada en el filtre
+
+            // Carregar el fitxer HTML de la secció
+            const filePath = `seccions/${selectedType}.html`;
+            fetch(filePath)
+                .then(response => response.text())
+                .then(data => {
+                    contentSection.innerHTML = data; // Inserim el contingut al div 'content'
+                })
+                .catch(error => {
+                    console.error('Error carregant la secció:', error);
+                    contentSection.innerHTML = '<p>Error en carregar la secció. Intenta-ho de nou més tard!</p>';
+                });
+
+            // Obté una nova activitat basada en el filtre seleccionat
+            fetchRandomActivity();
         });
     });
 

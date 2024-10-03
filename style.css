@@ -9,13 +9,28 @@ html {
 
 header {
     padding: 20px;
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: #ffffff;
 }
 
 .logo {
     font-weight: bold;
     color: #282c34;
+}
+
+#dark-mode-toggle {
+    background-color: #6d5dfc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#dark-mode-toggle:hover {
+    background-color: #4b5c77;
 }
 
 /* Botons de filtres */
@@ -118,6 +133,7 @@ footer {
     }
 }
 
+/* Media Queries per a mòbils */
 @media (max-width: 480px) {
     header {
         text-align: center;
@@ -135,4 +151,41 @@ footer {
         padding: 10px 20px;
         font-size: 0.9em;
     }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header.dark-mode {
+    background: #1e1e1e;
+}
+
+footer.dark-mode {
+    background: #1e1e1e;
+}
+
+.filter-btn.dark-mode {
+    background-color: #333333;
+}
+
+.filter-btn.dark-mode:hover,
+.filter-btn.active.dark-mode {
+    background-color: #4b5c77;
+}
+
+#activity-card.dark-mode,
+#activity-result.dark-mode {
+    background: #333333;
+    border: 1px solid #4b4b4b;
+}
+
+#generate-btn.dark-mode {
+    background-color: #6d5dfc;
+}
+
+#generate-btn.dark-mode:hover {
+    background-color: #4b5c77;
 }

@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const activityText = document.getElementById('activity-text');
     const generateBtn = document.getElementById('generate-btn');
     const filterButtons = document.querySelectorAll('.filter-btn');
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    const body = document.body;
     let selectedType = ''; // Variable per emmagatzemar el tipus seleccionat (si n'hi ha)
 
     // Funció per obtenir una activitat (amb o sense filtre)
@@ -16,8 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(data => {
                 // Mostrem la informació de l'activitat
                 activityText.textContent = `Activitat: ${data.activity}`;
-
-                // (Opcional) Afegir més informació sobre l'activitat
                 console.log(data); // Mostra totes les dades per inspeccionar
             })
             .catch(error => {
@@ -38,6 +38,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Botó de generar nova activitat
     generateBtn.addEventListener('click', fetchRandomActivity);
+
+    // Canvia entre dark mode i light mode
+    darkModeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+
+        // Canviar estils dels elements
+        const elements = document.querySelectorAll("#activity-card, #activity-result, .filter-btn, header, footer");
+        elements.forEach(element => element.classList.toggle("dark-mode"));
+
+        // Canvi del text del botó
+        darkModeToggle.textContent = body.classList.contains("dark-mode") ? "Light Mode" : "Dark Mode";
+    });
 
     // Carregar una activitat per defecte quan es carrega la pàgina
     fetchRandomActivity();

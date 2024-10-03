@@ -33,11 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedType = button.getAttribute('data-type'); // Actualitza el tipus seleccionat
 
             // Carregar el fitxer HTML de la secció
-            const filePath = `seccions/${selectedType}.html`;
+            const filePath = `html/${selectedType}.html`; // Assegura't que el camí sigui correcte
             fetch(filePath)
                 .then(response => response.text())
                 .then(data => {
-                    contentSection.innerHTML = data; // Inserim el contingut al div 'content'
+                    // Esborra el contingut anterior abans d'afegir el nou
+                    contentSection.innerHTML = '';
+                    // Inserim el contingut al div 'content'
+                    const newContent = document.createElement('div');
+                    newContent.innerHTML = data;
+                    contentSection.appendChild(newContent);
                 })
                 .catch(error => {
                     console.error('Error carregant la secció:', error);

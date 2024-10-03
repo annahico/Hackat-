@@ -33,21 +33,21 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedType = button.getAttribute('data-type'); // Actualitza el tipus seleccionat
 
             // Carregar el fitxer HTML de la secció
-            const filePath = `html/${selectedType}.html`; // Assegura't que el camí sigui correcte
-            fetch(filePath)
-                .then(response => response.text())
-                .then(data => {
-                    // Esborra el contingut anterior abans d'afegir el nou
-                    contentSection.innerHTML = '';
-                    // Inserim el contingut al div 'content'
-                    const newContent = document.createElement('div');
-                    newContent.innerHTML = data;
-                    contentSection.appendChild(newContent);
-                })
-                .catch(error => {
-                    console.error('Error carregant la secció:', error);
-                    contentSection.innerHTML = '<p>Error en carregar la secció. Intenta-ho de nou més tard!</p>';
-                });
+            // const filePath = `html/${selectedType}.html`; // Assegura't que el camí sigui correcte
+            // fetch(filePath)
+            //     .then(response => response.text())
+            //     .then(data => {
+            //         // Esborra el contingut anterior abans d'afegir el nou
+            //         contentSection.innerHTML = '';
+            //         // Inserim el contingut al div 'content'
+            //         const newContent = document.createElement('div');
+            //         newContent.innerHTML = data;
+            //         contentSection.appendChild(newContent);
+            //     })
+            // .catch(error => {
+            //     console.error('Error carregant la secció:', error);
+            //     contentSection.innerHTML = '<p>Error en carregar la secció. Intenta-ho de nou més tard!</p>';
+            // });
 
             // Obté una nova activitat basada en el filtre seleccionat
             fetchRandomActivity();

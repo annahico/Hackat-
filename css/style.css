@@ -60,12 +60,15 @@ header {
 /* Contingut de l'activitat */
 #content {
     display: flex;
+    /* Flexbox per al layout */
     justify-content: center;
     align-items: center;
     gap: 40px;
+    /* Espai entre els elements */
     padding: 50px;
+    /* Espai de la secció */
     flex-wrap: wrap;
-    /* Per ajustar en pantalles petites */
+    /* Ajustar en pantalles petites */
 }
 
 #activity-card,
@@ -76,9 +79,9 @@ header {
     border-radius: 10px;
     text-align: center;
     width: 100%;
-    /* Per a pantalles petites */
+    /* Ample per a pantalles petites */
     max-width: 300px;
-    /* Màxim ample en pantalles grans */
+    /* Ample màxim per a pantalles grans */
 }
 
 #activity-title {
@@ -122,6 +125,7 @@ footer {
     #content {
         padding: 30px;
         flex-direction: column;
+        /* Canvia a columna en pantalles petites */
     }
 
     #activity-card,

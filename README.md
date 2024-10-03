@@ -27,7 +27,7 @@ Clona el repositori:
 
 Copia el codi
 ```sh
-   git clone https://github.com/usuari/prova-frontend.git
+   git clone https://github.com/annahico/Salo_Ocupacio_2024_Hackato
 ```
 Accedeix al directori del projecte:
 

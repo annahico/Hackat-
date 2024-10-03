@@ -24,6 +24,7 @@ header {
     display: flex;
     justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .filter-btn {
@@ -48,6 +49,8 @@ header {
     align-items: center;
     gap: 40px;
     padding: 50px;
+    flex-wrap: wrap;
+    /* Per ajustar en pantalles petites */
 }
 
 #activity-card,
@@ -57,6 +60,10 @@ header {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    width: 100%;
+    /* Per a pantalles petites */
+    max-width: 300px;
+    /* Màxim ample en pantalles grans */
 }
 
 #activity-title {
@@ -77,4 +84,55 @@ header {
 
 #generate-btn:hover {
     background-color: #4b5c77;
+}
+
+/* Estils del footer */
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #f0f0f0;
+}
+
+/* Media Queries per a diferents mides de pantalla */
+@media (max-width: 768px) {
+    #filters {
+        gap: 5px;
+    }
+
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    #content {
+        padding: 30px;
+        flex-direction: column;
+    }
+
+    #activity-card,
+    #activity-result {
+        max-width: 90%;
+        /* Redueix la mida dels blocs */
+        margin-bottom: 20px;
+        /* Separació entre seccions */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        text-align: center;
+    }
+
+    #content {
+        padding: 20px;
+    }
+
+    #activity-title {
+        font-size: 1.2em;
+    }
+
+    #generate-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
 }

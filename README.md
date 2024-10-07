@@ -33,12 +33,6 @@ Accedeix al directori del projecte:
 
 Copia el codi
 ```sh
-cd prova-frontend
-```
-Instal·la les dependències (si n'hi ha): Si el projecte inclou un fitxer package.json (perquè has usat un entorn com React o Vue), assegura't d'instal·lar les dependències:
-
-Copia el codi
-```sh
 npm install
 ```
 Executa el projecte: Si es tracta d'un projecte JavaScript pur, simplement obre el fitxer index.html amb el teu navegador:

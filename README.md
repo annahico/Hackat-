@@ -35,8 +35,7 @@ Copia el codi
 ```sh
 npm install
 ```
-Executa el projecte: Si es tracta d'un projecte JavaScript pur, simplement obre el fitxer index.html amb el teu navegador:
-
+Executa el projecte: 
 Mac:
 Copia el codi
 ```sh
@@ -52,14 +51,6 @@ Copia el codi
 ```sh
 xdg-open index.html
 ```
-Si és un projecte amb Node.js o un altre entorn de desenvolupament, executa'l amb:
-
-bash
-Copia el codi
-```sh
-npm start
-```
-
 
 <h2>✨ Funcionalitats</h2>
 
